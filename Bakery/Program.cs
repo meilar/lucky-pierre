@@ -1,12 +1,13 @@
-// using System;
+using System;
+using Bakery.Models;
 
-// public Namespace Bakery
-// {
-//   public Class Program
-//   {
-//     static void Main()
-//     {
-//       Console.WriteLine("This is a placeholder instruction.");
-//     }
-//   }
-// }
+namespace Bakery
+{
+  public class Program
+  {
+    static void Main()
+  {
+    Console.WriteLine(Welcome.Banner);
+  }
+}
+}
