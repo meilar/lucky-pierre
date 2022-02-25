@@ -1,16 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectName;
+using Bakery.Models;
 
-namespace ProjectName.Tests
+namespace Bakery.Tests
 {
   [TestClass]
-  public class ClassNameTests
+  public class BreadTests
   {
     [TestMethod]
-public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
-{
-  // any necessary logic to prep for test; instantiating new classes, etc.
-  Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
-}
+    public void Constructor_InitializesObject_IsPastry()
+    {
+      Bread newBread = new Bread(1);
+      Assert.AreEqual(typeof(Bread), newBread.GetType());
+    }
   }
 }
