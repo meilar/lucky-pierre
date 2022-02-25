@@ -24,5 +24,15 @@ namespace Bakery.Tests
       Pastry pastry7 = new Pastry(7);
       Assert.AreEqual(pastry7.Total, 12);
     }
+
+    [TestMethod]
+    public void UpdateTotal_UpdatesPriceAfterInitialization_NewOrderTotal()
+    {
+      Pastry newPastry = new Pastry(1);
+      Assert.AreEqual(newPastry.Total, 2);
+      newPastry.Quantity = 7;
+      newPastry.UpdateTotal();
+      Assert.AreEqual(newPastry.Total, 12);
+    }
   }
 }
