@@ -3,23 +3,21 @@ namespace Bakery.Models
   public class Bread
   {
     public int Quantity { get; set; }
-    public int Total { get; }
+    public int Total { get; set; }
     public string PriceDescription;
 
     public Bread(int quantity)
     {
       Quantity = quantity;
-      Total = this.UpdateTotal(quantity);
-      
+      this.UpdateTotal();
     }
 
-    private int UpdateTotal(int quanitity)
+    public void UpdateTotal()
     {
-      int total = 0;
-      int discountedQuantity = quanitity/3;
-      int fullPriceQuantity = quanitity%3;
-      total = (discountedQuantity*10) + (fullPriceQuantity*5);
-      return total;
+      int quantity = this.Quantity;
+      int discountedQuantity = quantity/3;
+      int fullPriceQuantity = quantity%3;
+      this.Total = (discountedQuantity*10) + (fullPriceQuantity*5);
     }
   }
 }
