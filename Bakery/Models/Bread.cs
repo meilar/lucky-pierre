@@ -9,7 +9,17 @@ namespace Bakery.Models
     public Bread(int quantity)
     {
       Quantity = quantity;
-      Total = 0;
+      Total = this.UpdateTotal(quantity);
+      
+    }
+
+    private int UpdateTotal(int quanitity)
+    {
+      int total = 0;
+      int discountedQuantity = quanitity/3;
+      int fullPriceQuantity = quanitity%3;
+      total = (discountedQuantity*10) + (fullPriceQuantity*5);
+      return total;
     }
   }
 }
