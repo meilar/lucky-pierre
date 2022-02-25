@@ -25,5 +25,15 @@ namespace Bakery.Tests
       Bread bread4 = new Bread(7);
       Assert.AreEqual(bread4.Total, 25);
     }
+
+    [TestMethod]
+    public void UpdateTotal_UpdatesPriceAfterInitialization_NewOrderTotal()
+    {
+      Bread newBread = new Bread(1);
+      Assert.AreEqual(newBread.Total, 5);
+      newBread.Quantity = 7;
+      newBread.UpdateTotal();
+      Assert.AreEqual(newBread.Total, 25);
+    }
   }
 }
