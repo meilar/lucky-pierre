@@ -8,9 +8,11 @@ namespace Bakery
   {
     static void Main()
     {
-      Console.WriteLine(Welcome.Banner);
+      Console.WriteLine(Dialogue.Banner);
       Console.ReadKey();
-      Console.WriteLine(Welcome.Intro);
+      Console.WriteLine(Dialogue.Intro);
+      MainNavigation();
+
       int breadInput = Int32.Parse(Console.ReadLine());
       Bread userBread = new Bread(breadInput);
 
@@ -25,7 +27,7 @@ namespace Bakery
         Console.WriteLine("Thank you. You have ordered " + userBread.Quantity + " loaf/loaves of bread, and your order total is now $" + userBread.Total);
       }
 
-      Console.WriteLine(Welcome.PastriesText);
+      Console.WriteLine(Dialogue.PastriesText);
       int pastryInput = Int32.Parse(Console.ReadLine());
       Pastry userPastry = new Pastry(pastryInput);
 
@@ -33,9 +35,9 @@ namespace Bakery
       {
         Console.WriteLine();
         Console.WriteLine("OK, then. Thanks for stopping in, and maybe you'll try something another time.");
-        Console.WriteLine(Welcome.Outtro);
+        Console.WriteLine(Dialogue.Outtro);
         Thread.Sleep(5000);
-        Console.WriteLine(Welcome.Grafix);
+        Console.WriteLine(Dialogue.Grafix);
       }
       else if (pastryInput == 0)
       {
@@ -44,9 +46,9 @@ namespace Bakery
         Console.WriteLine();
         Console.ReadKey();
         Console.WriteLine("Your payment has been accepted. Thank you for shopping with us.");
-        Console.WriteLine(Welcome.Outtro);
+        Console.WriteLine(Dialogue.Outtro);
         Thread.Sleep(5000);
-        Console.WriteLine(Welcome.Grafix);
+        Console.WriteLine(Dialogue.Grafix);
       }
       else
       {
@@ -55,12 +57,40 @@ namespace Bakery
         Console.ReadKey();
         Console.WriteLine();
         Console.WriteLine("Your payment has been accepted. Thank you for shopping with us.");
-        Console.WriteLine(Welcome.Outtro);
+        Console.WriteLine(Dialogue.Outtro);
         Thread.Sleep(10000);
-        Console.WriteLine(Welcome.Grafix);
+        Console.WriteLine(Dialogue.Grafix);
       }
 
 
+    }
+
+    public static void MainNavigation()
+    {
+      Console.WriteLine(Dialogue.NavPrompt);
+      string response = Console.ReadLine();
+      Console.WriteLine();
+      if (response == "about")
+      {
+        ShowAbout();
+      }
+      else
+      {
+        Console.WriteLine();
+        Console.WriteLine("I'm afraid I don't understand you. Let's try again. Press ENTER to return to the navigation menu.");
+        Console.ReadKey();
+        Console.WriteLine();
+        Program.MainNavigation();
+      }
+
+    }
+
+    public static void ShowAbout()
+    {
+      Console.WriteLine();
+      Console.WriteLine(Dialogue.About);
+      Console.ReadKey();
+      Program.MainNavigation();
     }
   }
 }

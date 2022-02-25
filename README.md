@@ -22,7 +22,7 @@ To run the application, you must have the following tools installed:
 
 - Open your command line and clone this project with the following instruction: `$ git clone https://www.github.com/meilar/lucky-pierre`
 - Enter the project folder with the following command: `$ cd Bakery.Solution/Bakery`
-- Start the application with the following command: `dotnet run`
+- Start the application with the following command: `$ dotnet run`
 
 
 ## Technologies Used
