@@ -12,5 +12,18 @@ namespace Bakery.Tests
       Bread newBread = new Bread(1);
       Assert.AreEqual(typeof(Bread), newBread.GetType());
     }
+
+    [TestMethod]
+    public void Constructor_RunsPricingLogic_OrderTotal()
+    {
+      Bread bread1 = new Bread(1);
+      Assert.AreEqual(bread1.Total, 5);
+      Bread bread2 = new Bread(2);
+      Assert.AreEqual(bread2.Total, 10);
+      Bread bread3 = new Bread(3);
+      Assert.AreEqual(bread3.Total, 10);
+      Bread bread4 = new Bread(7);
+      Assert.AreEqual(bread4.Total, 25);
+    }
   }
 }
