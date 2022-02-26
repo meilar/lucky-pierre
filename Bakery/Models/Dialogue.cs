@@ -31,7 +31,7 @@ namespace Bakery.Models
                         \.,_____________,./
       
 
-      
+
         PIERRE'S BAKERY was established in 1932, when Pierre 'Pip' Flower-Pounder
         made a pie for his friend Jim, and Jim said 'Huh, this is pretty good. You
         should open a bakery.' 
@@ -131,8 +131,6 @@ namespace Bakery.Models
                     ██░░░░██                                                      
                       ████         
     
-
-                    Press CONTROL + C to exit.
     ";
   }
 }
