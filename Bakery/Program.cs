@@ -60,8 +60,18 @@ namespace Bakery
     public static void OrderBread()
     {
       Console.WriteLine(Dialogue.BreadPrompt);
-      int breadInput = Int32.Parse(Console.ReadLine());
+      int breadInput = 0;
+      try 
+      {
+        breadInput = Int32.Parse(Console.ReadLine());
+      }
+      catch
+      {
+        Error();
+      }
+      
       Console.WriteLine();
+      
       if (breadInput == 0)
       {
         Console.WriteLine("Thank you.");
@@ -69,6 +79,7 @@ namespace Bakery
       else
       {
         Basket.userBread.Quantity = breadInput;
+        Basket.userBread.UpdateTotal();
         Console.WriteLine("Thank you. You have ordered " + Basket.userBread.Quantity + " loaf/loaves of bread, and your order total is now $" + (Basket.userBread.Total + Basket.userPastry.Total));
       }
       Console.WriteLine("Press ENTER to return to navigation menu.");
@@ -79,7 +90,15 @@ namespace Bakery
     public static void OrderPastry()
     {
       Console.WriteLine(Dialogue.PastriesPrompt);
-      int pastryInput = Int32.Parse(Console.ReadLine());
+      int pastryInput = 0;
+      try
+      {
+      pastryInput = Int32.Parse(Console.ReadLine());
+      }
+      catch
+      {
+        Error();
+      }
       Console.WriteLine();
       if (pastryInput == 0)
       {
@@ -88,6 +107,7 @@ namespace Bakery
       else
       {
         Basket.userPastry.Quantity = pastryInput;
+        Basket.userPastry.UpdateTotal();
         Console.WriteLine("Thank you. You have ordered " + Basket.userPastry.Quantity + " pastry/pastries, and your order total is now $" + (Basket.userBread.Total + Basket.userPastry.Total));
       }
       Console.WriteLine("Press ENTER to return to navigation menu.");
@@ -133,6 +153,8 @@ namespace Bakery
     {
       Basket.userBread.Quantity = 0;
       Basket.userPastry.Quantity = 0;
+      Basket.userBread.UpdateTotal();
+      Basket.userPastry.UpdateTotal();
       Console.WriteLine(Dialogue.Success);
       Thread.Sleep(3000);
       Program.MainNavigation();
