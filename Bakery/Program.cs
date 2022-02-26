@@ -76,6 +76,11 @@ namespace Bakery
       {
         Console.WriteLine("Thank you.");
       }
+      else if (breadInput <= 0)
+      {
+        Console.WriteLine("Nice try. Please don't enter negative numbers, it really bums me out.");
+        OrderBread();
+      }
       else
       {
         Basket.userBread.Quantity = breadInput;
@@ -103,6 +108,11 @@ namespace Bakery
       if (pastryInput == 0)
       {
         Console.WriteLine("Thank you.");
+      }
+      else if (pastryInput <= 0)
+      {
+        Console.WriteLine("Nice try. Please don't enter negative numbers, it really bums me out.");
+        OrderPastry();
       }
       else
       {
