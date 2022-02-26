@@ -124,6 +124,7 @@ namespace Bakery
       Console.WriteLine(Dialogue.Outtro);
       Thread.Sleep(10000);
       Console.WriteLine(Dialogue.Grafix);
+      Environment.Exit(0);
     }
 
     public static void ShowOrder()
